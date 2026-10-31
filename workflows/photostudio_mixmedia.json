@@ -1,0 +1,1631 @@
+{
+  "id": "c0b72134-2edc-43da-ba87-f78c5f063230",
+  "revision": 0,
+  "last_node_id": 300,
+  "last_link_id": 17,
+  "nodes": [
+    {
+      "id": 300,
+      "type": "Note",
+      "pos": [
+        -120,
+        -800
+      ],
+      "size": [
+        980,
+        340
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "ФОТОСТУДИЯ\n1 — лист персонажа, 2 — кадр, 3 — докрутка камеры.\nЭтапы не связаны: каждый запускается отдельно.\n\nЭтап включается галочкой run на его ноде-генераторе:\nMixmedia Character / Mixmedia Shot / Mixmedia Retake.\nТумблер стоит ПЕРВЫМ сверху и подписан «ЭТАП ВКЛЮЧЁН».\nВыключенный этап просто пропускается: без ошибки,\nбез запроса и без денег (в логе строка «...выключен»).\nВключённый этап всегда сохраняет файл через SaveImage.\n\nСейчас включён этап 1. Прошёл его -> выключи Character,\nвключи Shot. Промпт каждой генерации — в логе и output/_prompts."
+      ],
+      "title": "Инструкция"
+    },
+    {
+      "id": 1,
+      "type": "Note",
+      "pos": [
+        1780,
+        1000
+      ],
+      "size": [
+        420,
+        200
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "ЭТАП 1 — лист персонажа.\nВключён по умолчанию (run = ЭТАП ВКЛЮЧЁН).\nДальше: тут выключить, у Shot включить.\nПорядок: 6 фото лица -> Batch -> Character.\nЦена ~$0.065, 4K, 2x2."
+      ],
+      "title": "Инструкция"
+    },
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        320,
+        380
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ],
+      "title": "1. Лицо — фронт"
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        340,
+        0
+      ],
+      "size": [
+        320,
+        380
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ],
+      "title": "2. Лицо — три четверти"
+    },
+    {
+      "id": 4,
+      "type": "LoadImage",
+      "pos": [
+        680,
+        0
+      ],
+      "size": [
+        320,
+        380
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ],
+      "title": "3. Лицо — профиль"
+    },
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        1020,
+        0
+      ],
+      "size": [
+        320,
+        380
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ],
+      "title": "4. Лицо — ещё"
+    },
+    {
+      "id": 6,
+      "type": "LoadImage",
+      "pos": [
+        1360,
+        0
+      ],
+      "size": [
+        320,
+        380
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            5
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ],
+      "title": "5. Лицо — ещё"
+    },
+    {
+      "id": 7,
+      "type": "LoadImage",
+      "pos": [
+        1700,
+        0
+      ],
+      "size": [
+        320,
+        380
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            6
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ],
+      "title": "6. Лицо — ещё"
+    },
+    {
+      "id": 20,
+      "type": "BatchImagesNode",
+      "pos": [
+        340,
+        440
+      ],
+      "size": [
+        250,
+        200
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image0",
+          "name": "images.image0",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "label": "image1",
+          "name": "images.image1",
+          "type": "IMAGE",
+          "shape": 7,
+          "link": 2
+        },
+        {
+          "label": "image2",
+          "name": "images.image2",
+          "type": "IMAGE",
+          "shape": 7,
+          "link": 3
+        },
+        {
+          "label": "image3",
+          "name": "images.image3",
+          "type": "IMAGE",
+          "shape": 7,
+          "link": 4
+        },
+        {
+          "label": "image4",
+          "name": "images.image4",
+          "type": "IMAGE",
+          "shape": 7,
+          "link": 5
+        },
+        {
+          "label": "image5",
+          "name": "images.image5",
+          "type": "IMAGE",
+          "shape": 7,
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BatchImagesNode",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 21,
+      "type": "MixmediaCharacter",
+      "pos": [
+        700,
+        440
+      ],
+      "size": [
+        440,
+        470
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "identity",
+          "name": "identity",
+          "type": "IMAGE",
+          "link": 7
+        },
+        {
+          "localized_name": "run",
+          "name": "run",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "run"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "COMBO",
+          "widget": {
+            "name": "model"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "aspect_ratio",
+          "name": "aspect_ratio",
+          "type": "COMBO",
+          "widget": {
+            "name": "aspect_ratio"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "resolution",
+          "name": "resolution",
+          "type": "COMBO",
+          "widget": {
+            "name": "resolution"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "output_format",
+          "name": "output_format",
+          "type": "COMBO",
+          "widget": {
+            "name": "output_format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "look",
+          "name": "look",
+          "type": "STRING",
+          "shape": 7,
+          "widget": {
+            "name": "look"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "api_key",
+          "name": "api_key",
+          "type": "STRING",
+          "shape": 7,
+          "widget": {
+            "name": "api_key"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "timeout_sec",
+          "name": "timeout_sec",
+          "type": "INT",
+          "shape": 7,
+          "widget": {
+            "name": "timeout_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            8
+          ]
+        },
+        {
+          "localized_name": "info",
+          "name": "info",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MixmediaCharacter",
+        "cnr_id": "comfyui-mixmedia"
+      },
+      "widgets_values": [
+        true,
+        "nano-banana-pro",
+        42,
+        "randomize",
+        "1:1",
+        "4K",
+        "png",
+        "",
+        "",
+        900
+      ]
+    },
+    {
+      "id": 22,
+      "type": "SaveImage",
+      "pos": [
+        1200,
+        440
+      ],
+      "size": [
+        420,
+        460
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 8
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "character_ref"
+      ]
+    },
+    {
+      "id": 101,
+      "type": "Note",
+      "pos": [
+        0,
+        1920
+      ],
+      "size": [
+        460,
+        220
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "ЭТАП 2 — кадр.\nСейчас выключен: включи run на Mixmedia Shot.\nКидаешь: персонаж, одежда, локация.\nПоза — текстом прямо в Mixmedia Shot:\n«сидит на подоконнике, колени к груди».\nПусто -> поза не упоминается вообще.\nГоловной убор — MixMedia Ref, «(нет)» = из одежды.\nКамера, свет, объектив, объекты — в Studio.\nЦена ~$0.05, 2K."
+      ],
+      "title": "Инструкция"
+    },
+    {
+      "id": 102,
+      "type": "LoadImage",
+      "pos": [
+        0,
+        1500
+      ],
+      "size": [
+        320,
+        380
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ],
+      "title": "1. Персонаж (character sheet)"
+    },
+    {
+      "id": 103,
+      "type": "LoadImage",
+      "pos": [
+        340,
+        1500
+      ],
+      "size": [
+        320,
+        380
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ],
+      "title": "2. Одежда"
+    },
+    {
+      "id": 104,
+      "type": "LoadImage",
+      "pos": [
+        680,
+        1500
+      ],
+      "size": [
+        320,
+        380
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ],
+      "title": "3. Локация"
+    },
+    {
+      "id": 105,
+      "type": "MixmediaPick",
+      "pos": [
+        1020,
+        1500
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MixmediaPick",
+        "cnr_id": "comfyui-mixmedia"
+      },
+      "widgets_values": [
+        "(нет)"
+      ],
+      "title": "4. Головной убор (нет = из одежды)"
+    },
+    {
+      "id": 110,
+      "type": "MixmediaShot",
+      "pos": [
+        1500,
+        1500
+      ],
+      "size": [
+        440,
+        760
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "identity",
+          "name": "identity",
+          "type": "IMAGE",
+          "link": 9
+        },
+        {
+          "localized_name": "run",
+          "name": "run",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "run"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "COMBO",
+          "widget": {
+            "name": "model"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "aspect_ratio",
+          "name": "aspect_ratio",
+          "type": "COMBO",
+          "widget": {
+            "name": "aspect_ratio"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "resolution",
+          "name": "resolution",
+          "type": "COMBO",
+          "widget": {
+            "name": "resolution"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "output_format",
+          "name": "output_format",
+          "type": "COMBO",
+          "widget": {
+            "name": "output_format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "pose",
+          "name": "pose",
+          "type": "STRING",
+          "shape": 7,
+          "widget": {
+            "name": "pose"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "outfit",
+          "name": "outfit",
+          "type": "IMAGE",
+          "shape": 7,
+          "link": 10
+        },
+        {
+          "localized_name": "location",
+          "name": "location",
+          "type": "IMAGE",
+          "shape": 7,
+          "link": 11
+        },
+        {
+          "localized_name": "headwear",
+          "name": "headwear",
+          "type": "IMAGE",
+          "shape": 7,
+          "link": 12
+        },
+        {
+          "localized_name": "direction",
+          "name": "direction",
+          "type": "STRING",
+          "shape": 7,
+          "widget": {
+            "name": "direction"
+          },
+          "link": 13
+        },
+        {
+          "localized_name": "api_key",
+          "name": "api_key",
+          "type": "STRING",
+          "shape": 7,
+          "widget": {
+            "name": "api_key"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "timeout_sec",
+          "name": "timeout_sec",
+          "type": "INT",
+          "shape": 7,
+          "widget": {
+            "name": "timeout_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            15
+          ]
+        },
+        {
+          "localized_name": "info",
+          "name": "info",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MixmediaShot",
+        "cnr_id": "comfyui-mixmedia"
+      },
+      "widgets_values": [
+        false,
+        "nano-banana-pro",
+        42,
+        "randomize",
+        "4:5",
+        "2K",
+        "png",
+        "",
+        "",
+        "",
+        900
+      ]
+    },
+    {
+      "id": 111,
+      "type": "MixmediaStudio",
+      "pos": [
+        1500,
+        2290
+      ],
+      "size": [
+        440,
+        620
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "framing",
+          "name": "framing",
+          "type": "COMBO",
+          "widget": {
+            "name": "framing"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "angle",
+          "name": "angle",
+          "type": "COMBO",
+          "widget": {
+            "name": "angle"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "camera_height",
+          "name": "camera_height",
+          "type": "COMBO",
+          "widget": {
+            "name": "camera_height"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "lens",
+          "name": "lens",
+          "type": "COMBO",
+          "widget": {
+            "name": "lens"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "light_setup",
+          "name": "light_setup",
+          "type": "COMBO",
+          "widget": {
+            "name": "light_setup"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "light_temp",
+          "name": "light_temp",
+          "type": "COMBO",
+          "widget": {
+            "name": "light_temp"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "light_contrast",
+          "name": "light_contrast",
+          "type": "COMBO",
+          "widget": {
+            "name": "light_contrast"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "backdrop",
+          "name": "backdrop",
+          "type": "COMBO",
+          "widget": {
+            "name": "backdrop"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "props",
+          "name": "props",
+          "type": "STRING",
+          "widget": {
+            "name": "props"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "avoid",
+          "name": "avoid",
+          "type": "STRING",
+          "widget": {
+            "name": "avoid"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "direction",
+          "name": "direction",
+          "type": "STRING",
+          "shape": 7,
+          "widget": {
+            "name": "direction"
+          },
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "direction",
+          "name": "direction",
+          "type": "STRING",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MixmediaStudio",
+        "cnr_id": "comfyui-mixmedia"
+      },
+      "widgets_values": [
+        "",
+        "auto",
+        "auto",
+        "auto",
+        "auto",
+        "auto",
+        "auto",
+        "auto",
+        "auto",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 112,
+      "type": "MixmediaDirection",
+      "pos": [
+        1500,
+        2820
+      ],
+      "size": [
+        440,
+        220
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "context_strength",
+          "name": "context_strength",
+          "type": "FLOAT",
+          "widget": {
+            "name": "context_strength"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "detail_strength",
+          "name": "detail_strength",
+          "type": "FLOAT",
+          "widget": {
+            "name": "detail_strength"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "direction",
+          "name": "direction",
+          "type": "STRING",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MixmediaDirection",
+        "cnr_id": "comfyui-mixmedia"
+      },
+      "widgets_values": [
+        "",
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": 120,
+      "type": "SaveImage",
+      "pos": [
+        2050,
+        1500
+      ],
+      "size": [
+        420,
+        460
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 15
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "shot"
+      ]
+    },
+    {
+      "id": 201,
+      "type": "Note",
+      "pos": [
+        1500,
+        3400
+      ],
+      "size": [
+        460,
+        220
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "ЭТАП 3 — докрутка камеры.\nСейчас выключен (run = этап выключен).\nВключить: run на Retake, у Shot выключить.\nКидаешь готовый кадр из этапа 2.\nturn ±90, zoom ±50, высота ±30, объектив.\nКаждый запуск — новая генерация, ~$0.05."
+      ],
+      "title": "Инструкция"
+    },
+    {
+      "id": 202,
+      "type": "LoadImage",
+      "pos": [
+        0,
+        3400
+      ],
+      "size": [
+        320,
+        380
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            16
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ],
+      "title": "Кадр из этапа 2 (заменить на свой)"
+    },
+    {
+      "id": 210,
+      "type": "MixmediaRetake",
+      "pos": [
+        420,
+        3400
+      ],
+      "size": [
+        460,
+        600
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 16
+        },
+        {
+          "localized_name": "run",
+          "name": "run",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "run"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "turn",
+          "name": "turn",
+          "type": "FLOAT",
+          "widget": {
+            "name": "turn"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "zoom",
+          "name": "zoom",
+          "type": "FLOAT",
+          "widget": {
+            "name": "zoom"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "camera_height",
+          "name": "camera_height",
+          "type": "FLOAT",
+          "widget": {
+            "name": "camera_height"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "lens",
+          "name": "lens",
+          "type": "COMBO",
+          "widget": {
+            "name": "lens"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "COMBO",
+          "widget": {
+            "name": "model"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "aspect_ratio",
+          "name": "aspect_ratio",
+          "type": "COMBO",
+          "widget": {
+            "name": "aspect_ratio"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "resolution",
+          "name": "resolution",
+          "type": "COMBO",
+          "widget": {
+            "name": "resolution"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "output_format",
+          "name": "output_format",
+          "type": "COMBO",
+          "widget": {
+            "name": "output_format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "api_key",
+          "name": "api_key",
+          "type": "STRING",
+          "shape": 7,
+          "widget": {
+            "name": "api_key"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "timeout_sec",
+          "name": "timeout_sec",
+          "type": "INT",
+          "shape": 7,
+          "widget": {
+            "name": "timeout_sec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            17
+          ]
+        },
+        {
+          "localized_name": "info",
+          "name": "info",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MixmediaRetake",
+        "cnr_id": "comfyui-mixmedia"
+      },
+      "widgets_values": [
+        false,
+        0.0,
+        0.0,
+        0.0,
+        "auto",
+        "",
+        "nano-banana-pro",
+        42,
+        "randomize",
+        "auto",
+        "2K",
+        "png",
+        "",
+        900
+      ]
+    },
+    {
+      "id": 220,
+      "type": "SaveImage",
+      "pos": [
+        950,
+        3400
+      ],
+      "size": [
+        420,
+        460
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 17
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "retake"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      3,
+      0,
+      20,
+      1,
+      "IMAGE"
+    ],
+    [
+      3,
+      4,
+      0,
+      20,
+      2,
+      "IMAGE"
+    ],
+    [
+      4,
+      5,
+      0,
+      20,
+      3,
+      "IMAGE"
+    ],
+    [
+      5,
+      6,
+      0,
+      20,
+      4,
+      "IMAGE"
+    ],
+    [
+      6,
+      7,
+      0,
+      20,
+      5,
+      "IMAGE"
+    ],
+    [
+      7,
+      20,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      8,
+      21,
+      0,
+      22,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      102,
+      0,
+      110,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      103,
+      0,
+      110,
+      1,
+      "IMAGE"
+    ],
+    [
+      11,
+      104,
+      0,
+      110,
+      2,
+      "IMAGE"
+    ],
+    [
+      12,
+      105,
+      0,
+      110,
+      3,
+      "IMAGE"
+    ],
+    [
+      13,
+      111,
+      0,
+      110,
+      11,
+      "STRING"
+    ],
+    [
+      14,
+      112,
+      0,
+      111,
+      11,
+      "STRING"
+    ],
+    [
+      15,
+      110,
+      0,
+      120,
+      0,
+      "IMAGE"
+    ],
+    [
+      16,
+      202,
+      0,
+      210,
+      0,
+      "IMAGE"
+    ],
+    [
+      17,
+      210,
+      0,
+      220,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "1. Персонаж — лист 2×2 (включён)",
+      "bounding": [
+        -60,
+        -80,
+        2320,
+        1260
+      ],
+      "color": "#3f789e",
+      "font_size": 28,
+      "flags": {}
+    },
+    {
+      "title": "2. Кадр (выключен)",
+      "bounding": [
+        -60,
+        1400,
+        2700,
+        1650
+      ],
+      "color": "#8c6bb1",
+      "font_size": 28,
+      "flags": {}
+    },
+    {
+      "title": "3. Докрутка камеры (выключен)",
+      "bounding": [
+        -60,
+        3300,
+        2100,
+        1000
+      ],
+      "color": "#88a",
+      "font_size": 28,
+      "flags": {}
+    },
+    {
+      "title": "ФОТОСТУДИЯ",
+      "bounding": [
+        -160,
+        -880,
+        2900,
+        5280
+      ],
+      "color": "#335",
+      "font_size": 28,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.4,
+      "offset": [
+        900,
+        100
+      ]
+    }
+  },
+  "version": 0.4
+}
