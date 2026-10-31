@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+comfyui/
+output/
+input/
+user/
+models/
+dist/
+*.dmg
+.mixmedia_key
+*.key
+.env
+.DS_Store
+tools/e2e/.p*/
