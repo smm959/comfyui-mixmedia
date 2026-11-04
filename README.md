@@ -129,6 +129,8 @@ DMG-установщик с окном «перетащи в Applications»:
   строки и меню Chrome, с ⌘R / ⌘± и обычным копипастом; размер и положение запоминаются;
 * сервер поднимается через launchd (`local.mixmedia.comfyui`) и живёт после закрытия окна;
 * ключ при первом запуске переезжает в `~/.mixmedia_key`, в установщик он не попадает;
+* диалоги системные: «Открыть» воркфлоу, загрузка картинки и `MixmediaPick` — `NSOpenPanel`, а JS
+  `alert`/`confirm` — листы macOS; при старте сразу открывается `photostudio_mixmedia`;
 * сборка окна: `clang` (нужна принятая лицензия Xcode) — `desktop/ComfyUIApp.m`; запасной вариант —
   `pyobjc-framework-WebKit` из `desktop/requirements.txt`, последний — Chrome `--app`;
 * нужен `dmgbuild` (`pip install dmgbuild`).

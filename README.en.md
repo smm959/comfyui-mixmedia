@@ -130,6 +130,9 @@ with the usual drag-to-Applications window:
   bar or Chrome menu, with ⌘R / ⌘± and normal copy-paste; the window size and position are remembered;
 * the server is started through launchd (`local.mixmedia.comfyui`) and keeps running after the window closes;
 * on first launch the key is copied to `~/.mixmedia_key`, it is never packaged into the installer;
+* file dialogs are native: "Open workflow", image upload and `MixmediaPick` use `NSOpenPanel`, and JS
+  `alert` / `confirm` / `prompt` are sheets — WKWebView shows nothing unless the delegate implements them;
+* on launch the studio workflow (`photostudio_mixmedia`) opens with the camera view saved in the file;
 * window build: `clang` (needs an accepted Xcode license) for `desktop/ComfyUIApp.m`; fallbacks are
   `pyobjc-framework-WebKit` from `desktop/requirements.txt`, then Chrome `--app`;
 * requires `dmgbuild` (`pip install dmgbuild`).
